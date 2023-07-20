@@ -6,6 +6,12 @@ body {
   background-color: #ffffff;
 }
 
+.canvabg {
+  background-color: #ffffff;
+    opacity: 1;
+    background-image: linear-gradient(#e6e6e6 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(to right, #e6e6e6 1.7000000000000002px, #ffffff 1.7000000000000002px);
+    background-size: 34px 34px;
+}
 .addbg {
 
   background-repeat: repeat-x;
@@ -23,4 +29,31 @@ html::-webkit-scrollbar-track {
 
 html::-webkit-scrollbar-thumb {
   background: #304d72;
+}
+
+
+.animatedheart {
+  --bg-size: 400%;
+  --color-one: hsl(350, 67%, 49%);
+  --color-two: hsl(342, 100%, 76%);
+  background: linear-gradient(135deg,
+      var(--color-one),
+      var(--color-two),
+      var(--color-one)) 0 0 / var(--bg-size) 100%;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: move-bg 1s infinite linear;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .animatedheart {
+    animation: move-bg 8s linear infinite;
+  }
+
+  @keyframes move-bg {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
 }
