@@ -4,10 +4,9 @@ import { useState } from "react";
 import ProcessedImage from "./ProcessedImage";
 const ImageProcess = () => {
 	const [processedImageUrl, setProcessedImageUrl] = useState(null);
-	const [text, setText] = useState("");
 
 	return (
-		<div className="flex justify-around space-x-6 m-auto w-max">
+		<div className="space-y-4  flex flex-col w-1/2 m-auto py-4">
 			<ImageUploader
 				setProcessedImageUrl={setProcessedImageUrl}
 			/>

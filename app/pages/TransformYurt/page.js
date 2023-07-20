@@ -4,11 +4,10 @@ import VerticalNavbar from "../../components/VerticalNavbar";
 import ImageUploader from "../../components/ImageUpLoader";
 import ProcessedImage from "../../components/ProcessedImage";
 import ImageProcess from "../../components/ImageProcess";
-
 const TransformYurtPage = () => {
 	return (
-		<div className="flex py-60 canvabg md:h-max">
-			{/* <VerticalNavbar /> */}
+		<div className="flex">
+			<VerticalNavbar />
 			<ImageProcess />
 		</div>
 	);

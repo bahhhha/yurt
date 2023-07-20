@@ -1,13 +1,11 @@
 "use client";
 import { useState } from "react";
 
-function ChooseForm({ name, options, chosenOptions, setChosenOptions }) {
+function ChooseForm({ name, options }) {
 	const [selected, setSelected] = useState(options[0]);
+
 	const handleChange = (event) => {
 		setSelected(event.target.value);
-		if (selected !== "Random") {
-			setChosenOptions([...chosenOptions, { [name]: selected }]);
-		}
 	};
 
 	return (
