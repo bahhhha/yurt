@@ -9,7 +9,7 @@ const ProcessedImage = ({ processedImageUrl }) => {
 	};
 	if (processedImageUrl !== null) {
 		return (
-			<div className="my-24 text-center text-xl font-bold text-[#304d72]">
+			<div className=" text-center text-xl font-bold text-[#304d72]">
 				{/* <div className="my-4">
 					Your{" "}
 					<span className="text-[#6BDBD6]">
@@ -24,15 +24,15 @@ const ProcessedImage = ({ processedImageUrl }) => {
 					<img
 						src={processedImageUrl}
 						alt="Processed"
-						className="rounded-md h-[400px] w-[400px] object-cover  border-2 border-dashed border-gray-400 "
+						className="rounded-md w-[400px] h-[400px] object-cover border-2 border-dashed border-gray-400 "
 					/>
 				</a>
-				<div className="mt-4 ">
+				<div className="">
 					<button
-						className="bg-[#6BDBD6] text-[#304d72] hover:text-[#6bdbd6] hover:bg-[#304d72] duration-150 font-medium px-4 py-2 rounded-md"
 						onClick={downloadFile}
+						className="w-max py-2 px-4 mt-6 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700 focus:outline-none"
 					>
-						Download
+						Download{" "}
 					</button>
 				</div>
 			</div>

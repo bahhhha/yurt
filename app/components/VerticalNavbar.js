@@ -1,35 +1,24 @@
+"use client";
 import React from "react";
 import ChooseForm from "./ImageSettings/ChooseForm";
-
+import { useState, useEffect } from "react";
 const forms = [
 	{
 		name: "Style",
 		options: [
 			"Random",
 			"Farmhouse",
-			"Cape Cod",
 			"Mid-century modern",
 			"Colonial",
 			"Craftsman",
 			"Mediterranean",
 			"Victorian",
-			"Neoclassical",
 			"Cottage",
 		],
 	},
 	{
 		name: "Material",
-		options: [
-			"Random",
-			"Wood",
-			"Brick",
-			"Concrete",
-			"Steel Frame",
-			"Earthbag",
-			"Cob",
-			"Straw Bale",
-			"Stone",
-		],
+		options: ["Random", "Wood", "Brick", "Concrete", "Stone"],
 	},
 	{
 		name: "Location",
@@ -38,9 +27,15 @@ const forms = [
 ];
 
 const VerticalNavbar = () => {
+	const [chosenOptions, setChosenOptions] = useState([]);
+	useEffect(() => {
+		console.log(chosenOptions);
+	}, [chosenOptions]);
 	const formsToShow = forms.map((form, index) => {
 		return (
 			<ChooseForm
+				chosenOptions={chosenOptions}
+				setChosenOptions={setChosenOptions}
 				key={index}
 				name={form.name}
 				options={form.options}
