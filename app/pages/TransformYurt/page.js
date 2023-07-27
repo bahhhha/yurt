@@ -7,7 +7,7 @@ import ImageProcess from "../../components/ImageProcess";
 
 const TransformYurtPage = () => {
 	return (
-		<div className="flex md:py-60 canvabg md:h-max">
+		<div className="flex py-8 pb-16 bg-white md:h-max">
 			{/* <VerticalNavbar /> */}
 			<ImageProcess />
 		</div>

@@ -24,7 +24,6 @@ const Loading = () => {
 };
 
 const ImageUploader = ({ setProcessedImageUrl }) => {
-	const [imageUrl, setImageUrl] = useState(null);
 	const [loading, setLoading] = useState(false);
 	const [dragOver, setDragOver] = useState(false);
 	const [selectedImage, setSelectedImage] = useState(null);
@@ -43,6 +42,7 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 	const options = [
 		{
 			name: "Style",
+			caption: "Choose the style",
 			options: [
 				"Random",
 				"Farmhouse",
@@ -56,10 +56,13 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 		},
 		{
 			name: "Material",
+			caption: "Choose the material",
+
 			options: ["Random", "Wood", "Brick", "Concrete", "Stone"],
 		},
 		{
 			name: "Location",
+			caption: "Choose the location",
 			options: ["Random", "Urban", "Suburban", "Rural"],
 		},
 	];
@@ -130,8 +133,9 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 	};
 
 	return (
-		<div className="flex md:flex-row flex-col md:space-x-12 md:content-center">
-			<div className="flex md:flex-col flex-row md:space-x-0 space-x-2 justify-around h-max md:space-y-6 py-4 m-auto drop-shadow-sm">
+		<div className="flex md:flex-col flex-col md:content-center ">
+			<div className="flex md:flex-col flex-col md:space-x-0 space-x-2 justify-around h-max pb-12 space-y-2  m-auto drop-shadow-sm">
+				<p className="captionText">{options[0].caption}</p>
 				<select
 					className="md:w-[200px] w-[100px] m-auto text-[#304d72] p-1 rounded-sm"
 					value={style}
@@ -143,6 +147,8 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 						</option>
 					))}
 				</select>
+				<p className="captionText">{options[1].caption}</p>
+
 				<select
 					className="md:w-[200px] w-[100px] m-auto text-[#304d72] p-1 rounded-sm"
 					value={material}
@@ -154,6 +160,10 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 						</option>
 					))}
 				</select>
+				<p className="captionText" s>
+					{options[2].caption}
+				</p>
+
 				<select
 					className="md:w-[200px] w-[100px] m-auto text-[#304d72] p-1 rounded-sm"
 					value={location}
@@ -229,7 +239,7 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 							</p>
 
 							<button
-								className="text-blue-500"
+								className="text-[#304d72]"
 								onClick={
 									handleBrowseFiles
 								}
@@ -253,7 +263,7 @@ const ImageUploader = ({ setProcessedImageUrl }) => {
 				) : (
 					<button
 						onClick={submitFile}
-						className="w-max py-2 px-4 mt-6 font-semibold rounded-lg shadow-md text-white bg-blue-500 hover:bg-blue-700 focus:outline-none"
+						className="w-max py-2 px-4 mt-6 font-semibold rounded-lg shadow-md text-white bg-[#304d72] hover:bg-[#6BDBD6] focus:outline-none"
 					>
 						Submit
 					</button>

@@ -9,9 +9,10 @@ body {
 .canvabg {
   background-color: #ffffff;
     opacity: 1;
-    background-image: linear-gradient(#e6e6e6 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(to right, #e6e6e6 1.7000000000000002px, #ffffff 1.7000000000000002px);
+    background-image: linear-gradient(#eeeeee 1.7000000000000002px, transparent 1.7000000000000002px), linear-gradient(to right, #e6e6e6 1.7000000000000002px, #ffffff 1.7000000000000002px);
     background-size: 34px 34px;
 }
+
 .addbg {
 
   background-repeat: repeat-x;
@@ -56,4 +57,11 @@ html::-webkit-scrollbar-thumb {
       background-position: var(--bg-size) 0;
     }
   }
+}
+
+.captionText {
+  color: #304d72;
+  font-weight: bold;
+  padding: 20px 0 0 0;
+  
 }
