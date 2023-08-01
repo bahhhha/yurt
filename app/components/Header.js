@@ -1,88 +1,57 @@
 "use client";
-
-import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import { useState } from "react";
 
 const Header = () => {
-	const [user, setUser] = useState(null);
-	const [fiefAuth, setFiefAuth] = useState(null);
+	const [isLoggedIn, setIsLoggedIn] = useState(false); // Replace with your authentication logic
 
-	useEffect(() => {
-		const initialize = () => {
-			const fiefClient = new window.fief.Fief({
-				baseURL: "https://yurt-ai.fief.dev",
-				clientId: "nkBx5IWyzE1C8fwNB7q2ssIN5X4GKQ4bDtDqptO3OYE",
-			});
-
-			const auth = new window.fief.browser.FiefAuth(fiefClient);
-			setFiefAuth(auth);
-
-			const userinfo = auth.getUserinfo();
-
-			if (userinfo !== null) {
-				setUser(userinfo);
-			}
-		};
-
-		if (window.fief) {
-			initialize();
-		} else {
-			const script = document.createElement("script");
-			script.src =
-				"https://unpkg.com/@fief/fief/build/index.umd.js";
-			script.addEventListener("load", initialize);
-			document.body.appendChild(script);
-		}
-	}, []);
+	const handleLogout = () => {
+		// Replace this with your logout logic
+		setIsLoggedIn(false);
+	};
 
 	return (
-		<header className="flex md:w-[1080px]  text-[#304d72] py-5 m-auto">
-			<div className="lg:w-[36px] w-[24px] m-auto h-auto flex space-x-1  md:space-x-3">
-				<img src="/home.svg"></img>
-				<p className="md:text-xl text-md font-black ">
-					Yurt.AI
-				</p>
+		<div className="flex md:w-[1080px] py-8 text-[#042123] justify-around m-auto">
+			<div className="flex items-center space-x-2 md:text-xl text-md font-bold">
+				<img src="/film.svg"></img>
+				<p>Jasmine</p>
 			</div>
-			<nav className="lg:w-[360px] space-x-3 lg:text-lg m-auto flex justify-around">
+			<nav className="font-light md:space-x-12 space-x-4 md:text-lg text-md">
 				<Link
 					href="/"
-					className="p-2 hover:text-[#6BDBD6] duration-150"
+					className="text-[#fff2cc] font-semibold hover:bg-[#45818e] hover:text-white duration-100 bg-[#042123] px-4 py-3 rounded-xl"
 				>
 					Home
 				</Link>
 				<Link
-					href="/pages/About"
-					className="p-2 hover:text-[#6BDBD6] duration-150"
+					href="/"
+					className="hover:text-[#45818e] duration-100"
 				>
-					About Us
+					About
 				</Link>
-				{user ? (
+				<Link
+					href="/"
+					className="hover:text-[#45818e] duration-100"
+				>
+					Contact
+				</Link>
+				{isLoggedIn ? (
 					<button
-						onClick={() =>
-							fiefAuth &&
-							fiefAuth.logout(
-								"http://localhost:3000"
-							)
-						}
-						className="bg-[#304d72] text-white lg:px-3 lg:p-2 hover:bg-[#6BDBD6] duration-150 rounded-xl"
+						className="underline decoration-[#45818e] hover:text-[#45818e] duration-100"
+						onClick={handleLogout}
 					>
-						Logout
+						Log Out
 					</button>
 				) : (
-					<button
-						onClick={() =>
-							fiefAuth &&
-							fiefAuth.redirectToLogin(
-								"http://localhost:3000/callback"
-							)
-						}
-						className="bg-[#304d72] text-white lg:px-3 p-1 px-3 lg:p-2 hover:bg-[#6BDBD6] duration-150 rounded-xl"
+					<Link
+						href="/pages/auth/login"
+						className="underline underline-offset-2 decoration-[#45818e] hover:text-[#45818e] duration-100"
 					>
-						Login
-					</button>
+						Log In
+					</Link>
 				)}
 			</nav>
-		</header>
+		</div>
 	);
 };
 
